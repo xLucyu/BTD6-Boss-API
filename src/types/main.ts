@@ -20,5 +20,4 @@ export interface Main {
   error: string | null;
   success: boolean;
   body: Body[];
-
 }
