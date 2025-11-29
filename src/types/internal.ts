@@ -7,12 +7,17 @@ export enum ScoringType {
 export interface ScoreParts {
   bossTier: number;
   score: number | string;
-  secondScore?: string;
+  secondScore?: number;
+}
+
+export interface Member {
+  displayName: string;
+  profile: string;
 }
 
 export interface TeamScore {
   position: number;
-  members: string[];
+  members: Member[];
   scoreParts: ScoreParts;
 }
 
@@ -22,6 +27,12 @@ export interface API {
   totalScores: number;
   scoringType: ScoringType;
   teams: TeamScore[];
-  nextPage?: string;
-  previousPage?: string;
+}
+
+
+// used when filtering the leaderboards
+export interface LBMap {
+  difficulty: string;
+  playerCount: number;
+  leaderboard: Map<string, TeamScore>;
 }
