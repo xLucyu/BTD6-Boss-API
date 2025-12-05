@@ -8,7 +8,7 @@ export class BossLeaderboard {
   async getAllLeaderboards(currentBossLB: Body, baseURL: string): Promise<LBMap[]> {
 
     const difficulties = ["standard", "elite"];
-    const playerModes = [2, 3, 4];
+    const playerModes = [1, 2, 3, 4];
     let leaderboards = [];
 
     for (const difficulty of difficulties) {

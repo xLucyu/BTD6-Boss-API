@@ -12,7 +12,10 @@ const filePath = "serviceAccount.json";
 async function startService() {
   
   let job = 1;
-  try { 
+  try {
+
+    console.log(`started job ${job}`)
+
     const googleBucket = bucket.connectToBucket(filePath);
 
     const currentBossLB = await getCurrentBossLB(baseURL); 
@@ -28,8 +31,8 @@ async function startService() {
   }
 }
 
-//scheduler.startScheduler(async () => {
-//  console.log("will be used later for function below");
-//}, 30);
-
 startService();
+
+scheduler.startScheduler(async () => {
+  startService()
+}, 30);
